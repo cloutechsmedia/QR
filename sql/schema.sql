@@ -126,7 +126,7 @@ INSERT INTO `settings` (`setting_key`, `setting_value`) VALUES
 ('scratch_foil_secondary', '#f5d782'),
 ('scratch_card_bg', '#0a3d42'),
 ('entry_counter', '0'),
-('require_ig_token', '1'),
+('require_ig_token', '0'),
 ('ig_dm_keyword', 'KOCHI'),
 ('ig_webhook_secret', 'tz_kochi_change_this_secret_98765')
 ON DUPLICATE KEY UPDATE `setting_key` = VALUES(`setting_key`);
