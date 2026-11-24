@@ -44,6 +44,29 @@ $verifiedToken  = '';
 $verifiedIgUser = '';
 $tokenError     = '';
 
+// Direct ManyChat Free-Plan Verified Redirect: /?v=<ig_webhook_secret>&u=<instagram_username>
+$verifySecretParam = trim((string) ($_GET['v'] ?? ''));
+$verifyUserParam   = normalize_instagram((string) ($_GET['u'] ?? ''));
+$expectedSecret    = (string) ($settings['ig_webhook_secret'] ?? '');
+
+if ($verifySecretParam !== '' && $expectedSecret !== '' && hash_equals($expectedSecret, $verifySecretParam)) {
+    // Strip secret from URL immediately by issuing a one-time token and redirecting
+    $oneTimeTok = bin2hex(random_bytes(20));
+    $igForTok   = is_valid_instagram($verifyUserParam) ? $verifyUserParam : 'ig_follower_' . substr($oneTimeTok, 0, 8);
+
+    $insTok = db()->prepare(
+        'INSERT INTO ig_verify_tokens (token, instagram_username, used, expires_at)
+         VALUES (:token, :ig, 0, DATE_ADD(NOW(), INTERVAL 24 HOUR))'
+    );
+    $insTok->execute([
+        ':token' => $oneTimeTok,
+        ':ig'    => $igForTok,
+    ]);
+
+    header('Location: index.php?token=' . rawurlencode($oneTimeTok));
+    exit;
+}
+
 if ($urlToken !== '') {
     $tokStmt = db()->prepare(
         'SELECT token, instagram_username, used, (expires_at > NOW()) AS not_expired
