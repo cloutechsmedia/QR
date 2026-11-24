@@ -37,7 +37,7 @@ $alreadyPlayed = !empty($_SESSION['has_played']);
 // Strict Auto-Verify Instagram DM Token Mode
 $requireIgToken = (($settings['require_ig_token'] ?? '0') === '1');
 $igDmKeyword    = (string) ($settings['ig_dm_keyword'] ?? 'KOCHI');
-$igDmUrl        = 'https://ig.me/m/' . rawurlencode($igHandle);
+$igDmUrl        = 'https://www.instagram.com/' . rawurlencode($igHandle) . '/';
 $urlToken       = trim((string) ($_GET['token'] ?? ''));
 $verifiedToken  = '';
 $verifiedIgUser = '';
