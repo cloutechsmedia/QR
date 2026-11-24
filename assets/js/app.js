@@ -372,5 +372,21 @@
     document.addEventListener('DOMContentLoaded', () => {
         runKochiLoader();
         initRulesAndForm();
+
+        // Smart Instagram DM button: mobile opens ig.me with ?text=KOCHI pre-filled; desktop opens profile + copies keyword
+        const btnDm = document.getElementById('btn-dm-ig');
+        if (btnDm) {
+            const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            const mobileUrl = btnDm.getAttribute('data-mobile-url');
+            const desktopUrl = btnDm.getAttribute('data-desktop-url');
+            const keyword = btnDm.getAttribute('data-keyword') || 'KOCHI';
+            btnDm.href = isMobile && mobileUrl ? mobileUrl : (desktopUrl || btnDm.href);
+
+            btnDm.addEventListener('click', () => {
+                if (navigator.clipboard && keyword) {
+                    navigator.clipboard.writeText(keyword).catch(() => {});
+                }
+            });
+        }
     });
 })();

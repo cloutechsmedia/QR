@@ -37,7 +37,8 @@ $alreadyPlayed = !empty($_SESSION['has_played']);
 // Strict Auto-Verify Instagram DM Token Mode
 $requireIgToken = (($settings['require_ig_token'] ?? '0') === '1');
 $igDmKeyword    = (string) ($settings['ig_dm_keyword'] ?? 'KOCHI');
-$igDmUrl        = 'https://www.instagram.com/' . rawurlencode($igHandle) . '/';
+$igDmMobileUrl  = 'https://ig.me/m/' . rawurlencode($igHandle) . '?text=' . rawurlencode($igDmKeyword);
+$igDmDesktopUrl = 'https://www.instagram.com/' . rawurlencode($igHandle) . '/';
 $urlToken       = trim((string) ($_GET['token'] ?? ''));
 $verifiedToken  = '';
 $verifiedIgUser = '';
@@ -280,7 +281,11 @@ $pageDesc = "Everyone wins! Follow @{$igHandle} and scratch your digital card fo
                             </a>
 
                             <a
-                                href="<?= e($igDmUrl) ?>"
+                                id="btn-dm-ig"
+                                href="<?= e($igDmMobileUrl) ?>"
+                                data-mobile-url="<?= e($igDmMobileUrl) ?>"
+                                data-desktop-url="<?= e($igDmDesktopUrl) ?>"
+                                data-keyword="<?= e($igDmKeyword) ?>"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="btn btn-gold btn-full"
