@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#041d21"/>
+      <stop offset="55%" stop-color="#0a3d42"/>
+      <stop offset="100%" stop-color="#06292d"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9952e"/>
+      <stop offset="50%" stop-color="#f5d782"/>
+      <stop offset="100%" stop-color="#d4a64a"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f7df94" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#d4a64a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="930" cy="240" r="190" fill="url(#sun)"/>
+
+  <!-- Gold Kasavu-inspired top & bottom border -->
+  <rect x="0" y="0" width="1200" height="10" fill="url(#gold)"/>
+  <rect x="0" y="620" width="1200" height="10" fill="url(#gold)"/>
+  <rect x="36" y="36" width="1128" height="558" rx="24" fill="none" stroke="#d4a64a" stroke-opacity="0.35" stroke-width="2"/>
+
+  <!-- Marine Drive & Backwater Silhouette -->
+  <path d="M0 470 Q200 440 420 468 T860 462 T1200 455 L1200 630 L0 630 Z" fill="#04191c" opacity="0.85"/>
+  <path d="M0 515 Q300 490 600 518 T1200 508 L1200 630 L0 630 Z" fill="#072c30" opacity="0.9"/>
+
+  <!-- Chinese Fishing Net Silhouette (Right) -->
+  <g stroke="#f5d782" stroke-opacity="0.65" fill="none" stroke-linecap="round">
+    <line x1="990" y1="470" x2="900" y2="265" stroke-width="6"/>
+    <line x1="900" y1="265" x2="740" y2="330" stroke-width="4"/>
+    <line x1="900" y1="265" x2="1040" y2="295" stroke-width="4"/>
+    <path d="M740 330 Q815 415 885 375" stroke-width="3" fill="#d4a64a" fill-opacity="0.12"/>
+    <line x1="765" y1="322" x2="800" y2="386" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="805" y1="306" x2="840" y2="388" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="845" y1="290" x2="875" y2="376" stroke-width="1.5" stroke-opacity="0.5"/>
+  </g>
+
+  <!-- Text Content -->
+  <text x="90" y="155" fill="#f5d782" font-family="Poppins, Segoe UI, sans-serif" font-size="24" font-weight="600" letter-spacing="4">TECHZO KOCHI CAMPAIGN</text>
+  <text x="90" y="250" fill="#f7f1e3" font-family="Poppins, Segoe UI, sans-serif" font-size="68" font-weight="700">Scratch &amp; Win</text>
+  <text x="90" y="318" fill="url(#gold)" font-family="Poppins, Segoe UI, sans-serif" font-size="34" font-weight="600">Everyone Wins Rs. 1000 Off!</text>
+  <text x="90" y="370" fill="#d8e6e5" font-family="Poppins, Segoe UI, sans-serif" font-size="24">3 Lucky Winners Get a Brand New Bluetooth Speaker</text>
+
+  <!-- Pill CTA -->
+  <rect x="90" y="425" width="380" height="62" rx="31" fill="url(#gold)"/>
+  <text x="280" y="465" text-anchor="middle" fill="#06292d" font-family="Poppins, Segoe UI, sans-serif" font-size="22" font-weight="700">Follow @techzo__official</text>
+</svg>
